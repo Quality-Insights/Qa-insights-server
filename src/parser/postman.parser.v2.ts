@@ -9,6 +9,7 @@ export function preparePostmanResultV2(result: any) {
   const build_id = randomUUID();
 
   for (let test of result.run?.executions) {
+    let test_id = randomUUID();
     const currentTestCases = [];
     let testCaseFailed = false;
     for (let testCase of test?.assertions || []) {
@@ -20,7 +21,7 @@ export function preparePostmanResultV2(result: any) {
           full_title: `${testCase.assertion}`,
           is_pass: `${testCase.error ? false : true}`,
           testcase_id: `${randomUUID()}`,
-          test_id: `${test?.item?.id}`
+          test_id: test_id
         }
       );
     };
@@ -31,7 +32,7 @@ export function preparePostmanResultV2(result: any) {
 
     tests.push(
       {
-        test_id: randomUUID(),
+        test_id: test_id,
         name: test?.item?.name,
         duration: `${test?.response?.responseTime}`,
         build_id: build_id,

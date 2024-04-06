@@ -12,10 +12,14 @@ logger.info(l`AWS credentials: ${awsCreds}`);
 // aws.config.update(awsCreds);
 const s3 = new aws.S3();
 
+function urlDecode(str: string) {
+  return decodeURIComponent(str.replace(/\+/g, " "));
+}
+
 export async function handler(event: S3Event, context: object) {
   const responsePromise = event.Records.map(async (record) => {
-    const bucket = record.s3.bucket.name;
-    const file = record.s3.object.key;
+    const bucket = urlDecode(record.s3.bucket.name);
+    const file = urlDecode(record.s3.object.key);
     logger.info(`Processing file ${file} from bucket ${bucket}`);
     const body = await s3.getObject({ Bucket: bucket, Key: file }).promise();
 

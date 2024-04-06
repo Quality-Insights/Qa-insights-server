@@ -1,4 +1,7 @@
 curpath=$(pwd)
+echo "pulling latest changes";
+git pull
+
 echo "current path: $curpath"
 
 echo "removing /tmp/dist"
@@ -31,4 +34,4 @@ echo "Renaming app.js to index.js"
 mv app.js index.js
 
 echo "zipping files"
-zip -r "$curpath/lambda.zip" .
+zip -r ~/lambda.zip .
