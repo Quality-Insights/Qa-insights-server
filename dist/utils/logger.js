@@ -38,7 +38,7 @@ class ConsoleLogTransport extends winston_transport_1.default {
         const finalMessage = `[${new Date().toISOString()}] [${levelIdentifierMap[info.level]} ${label}] ${message.replace(
         // eslint-disable-next-line no-control-regex
         /\x1B\[(:?0|39)m/g, levelColorMap[info.level])}`;
-        console.log(BRIGHT_COLOR + levelColorMap[info.level] + finalMessage + RESET_COLOR);
+        console.log(decolorize(finalMessage));
         info.stack && console.log("\t", info.stack);
         callback();
     }

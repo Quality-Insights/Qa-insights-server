@@ -1,6 +1,4 @@
-import { app } from "./app";
-import logger from "./utils/logger";
+import dotenv from "dotenv";
+dotenv.config();
 
-app.listen(3000, () => {
-  logger.info("Server running on port 3000");
-});
+export * from "./app";

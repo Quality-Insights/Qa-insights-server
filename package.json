@@ -5,13 +5,16 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "rm -rf dist lambda.zip;npx tsc;cp package.json ./dist/; cp package-lock.json ./dist/; cp -r node_modules ./dist/;mv dist/app.js dist/index.js;cd dist;zip -r ../lambda.zip .",
+    "build": "./lambda-compile.sh",
     "lint": "npx eslint --fix"
   },
   "author": "Qa Insights Team (pukar,suraj,roshan,sandesh,karin,anup,saroj)",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
@@ -33,18 +36,12 @@
     }
   },
   "dependencies": {
-    "@types/express": "^4.17.21",
-    "@types/morgan": "^1.9.9",
+    "aws-sdk": "^2.1594.0",
     "crypto": "^1.0.1",
     "express": "^4.19.2",
-    "express-logger": "^0.0.3",
-    "forever": "^4.0.3",
     "knex": "^3.1.0",
     "morgan": "^1.10.0",
-    "newman": "^6.1.2",
     "serverless-http": "^3.2.0",
-    "simple-git": "^3.24.0",
-    "simplegit": "^1.0.2",
     "winston": "^3.13.0",
     "winston-transport": "^4.7.0"
   }

@@ -45,10 +45,7 @@ export class ConsoleLogTransport extends Transport {
       levelColorMap[info.level],
     )}`;
 
-    console.log(
-      BRIGHT_COLOR + levelColorMap[info.level] + finalMessage + RESET_COLOR,
-    );
-
+    console.log(decolorize(finalMessage));
     info.stack && console.log("\t", info.stack);
     callback();
   }
