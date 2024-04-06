@@ -6,6 +6,8 @@ export function preparePostmanResultV2(result: any) {
 
   let testFailureCount = 0;
 
+  const build_id = randomUUID();
+
   for (let test of result.run?.executions) {
     const currentTestCases = [];
     let testCaseFailed = false;
@@ -32,7 +34,7 @@ export function preparePostmanResultV2(result: any) {
         test_id: randomUUID(),
         name: test?.item?.name,
         duration: `${test?.response?.responseTime}`,
-        build_id: `${result.collection.info?._postman_id}`,
+        build_id: build_id,
         url: `/${(test?.request?.url?.path).join('/')}`,
         responsecode_status: test?.response?.code
       }
@@ -40,7 +42,7 @@ export function preparePostmanResultV2(result: any) {
   }
 
   const build = {
-    build_id: randomUUID(),
+    build_id: build_id,
     folder_id: null,
     environment_id: `${result.environment?.id}`,
     delay: null,
