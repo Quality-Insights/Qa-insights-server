@@ -1,0 +1,3974 @@
+{
+  "collection": {
+    "_": {
+      "postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7"
+    },
+    "item": [
+      {
+        "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+        "name": "Register User",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "register"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+              "type": "text/javascript",
+              "exec": [
+                "const responseData = pm.response.json()",
+                "",
+                "// console.log(responseData.message)",
+                "",
+                "// Assert the status code",
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "// Assert the message ",
+                "pm.test(\"Assert the successfull message\", function () {",
+                "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                "});",
+                "",
+                "pm.test(\"Content-Type is present\", function () {",
+                "    pm.response.to.have.header(\"Content-Type\");",
+                "});",
+                "",
+                "",
+                ""
+              ],
+              "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+        "name": "Login User",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "login"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Response time is less than 200ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                "});"
+              ],
+              "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+        "name": "Logout User",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "users",
+              "logout"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST"
+        },
+        "response": [],
+        "event": [],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "2a356c60-f256-48bb-ae81-544819b82131",
+        "name": "Get All Employees",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "employee",
+              "getEmployees"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [
+              {
+                "key": "count",
+                "value": "2"
+              }
+            ],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "",
+                "pm.test(\"Response time is less than 50ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                "});"
+              ],
+              "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+        "name": "Patch Employee",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "employee",
+              "updateEmployee"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "PATCH"
+        },
+        "response": [],
+        "event": [],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+        "name": "Get a Employee",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "employee",
+              "getEmployee"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+              "type": "text/javascript",
+              "exec": [
+                "",
+                "// Assert the status code",
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});"
+              ],
+              "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+        "name": "Get Profile",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "profile"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+              "type": "text/javascript",
+              "exec": [
+                "// Assert the status code ",
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});"
+              ],
+              "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      },
+      {
+        "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+        "name": "Patch Profile",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "profile",
+              "update"
+            ],
+            "host": [
+              "{{baseURL}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "PATCH"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Assert the code \", function () {",
+                "    pm.expect(2).to.eql(3)",
+                "});"
+              ],
+              "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        }
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "type": "any",
+        "value": "http://localhost:3000",
+        "key": "baseUrl"
+      },
+      {
+        "type": "any",
+        "value": "http://43.205.212.159",
+        "key": "baseURL"
+      }
+    ],
+    "info": {
+      "_postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7",
+      "name": "QA Insights - Hackathon",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    }
+  },
+  "environment": {
+    "id": "ea091767-2a79-4634-8b74-5cfb97fa5bff",
+    "name": "QA Environment",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://43.205.212.159",
+        "key": "baseURL"
+      }
+    ]
+  },
+  "globals": {
+    "id": "757fdd52-e1e1-4da5-a7bf-8e6494e7905d",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 8,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 8,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 8,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 8,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 10,
+        "pending": 0,
+        "failed": 4
+      },
+      "testScripts": {
+        "total": 6,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 49.625,
+      "responseMin": 42,
+      "responseMax": 96,
+      "responseSd": 17.577951388031543,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1712405536705,
+      "completed": 1712405537216
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 8,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "998a29e2-6e6f-4b18-ad73-4814c066d8c9",
+          "httpRequestId": "b4e1ea8d-5e87-4a81-9fd4-97056cb19832"
+        },
+        "item": {
+          "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+          "name": "Register User",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "users",
+                "register"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                "type": "text/javascript",
+                "exec": [
+                  "const responseData = pm.response.json()",
+                  "",
+                  "// console.log(responseData.message)",
+                  "",
+                  "// Assert the status code",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "// Assert the message ",
+                  "pm.test(\"Assert the successfull message\", function () {",
+                  "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                  "});",
+                  "",
+                  "pm.test(\"Content-Type is present\", function () {",
+                  "    pm.response.to.have.header(\"Content-Type\");",
+                  "});",
+                  "",
+                  "",
+                  ""
+                ],
+                "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "users",
+              "register"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "b3dd018a-1b8c-4315-9da7-89e3d64ef488",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "POST"
+        },
+        "response": {
+          "id": "2451b9d8-623b-493b-be09-b7ad8fa08699",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "50"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"32-eug1kQN4GR22Bt2mU0C8kbdoqYc\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              50,
+              48,
+              48,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              83,
+              117,
+              99,
+              99,
+              101,
+              115,
+              115,
+              102,
+              117,
+              108,
+              108,
+              121,
+              32,
+              82,
+              101,
+              103,
+              105,
+              115,
+              116,
+              101,
+              114,
+              101,
+              100,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 96,
+          "responseSize": 50
+        },
+        "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+        "assertions": [
+          {
+            "assertion": "Status code is 201",
+            "skipped": false,
+            "error": {
+              "name": "AssertionError",
+              "index": 0,
+              "test": "Status code is 201",
+              "message": "expected response to have status code 201 but got 200",
+              "stack": "AssertionError: expected response to have status code 201 but got 200\n   at Object.eval sandbox-script.js:1:1)"
+            }
+          },
+          {
+            "assertion": "Assert the successfull message",
+            "skipped": false
+          },
+          {
+            "assertion": "Content-Type is present",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "3c354d99-39be-47e1-b502-d078e04c274c",
+          "length": 8,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "b056279d-9752-49a0-8aa8-df305829dfcf"
+        },
+        "item": {
+          "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+          "name": "Login User",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "users",
+                "login"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "users",
+              "login"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "160cd67f-36e2-4430-bec3-48387099e011",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "POST"
+        },
+        "response": {
+          "id": "d567b1d0-a312-4f73-a68f-ce4eb8549132",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "48"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"30-/qvqUYAcZkHxyGDd68hPUZLxua0\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              50,
+              48,
+              48,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              83,
+              117,
+              99,
+              99,
+              101,
+              115,
+              115,
+              102,
+              117,
+              108,
+              108,
+              121,
+              32,
+              76,
+              111,
+              103,
+              103,
+              101,
+              100,
+              105,
+              110,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 46,
+          "responseSize": 48
+        },
+        "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+        "assertions": [
+          {
+            "assertion": "Response time is less than 200ms",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "0a1e241c-c613-4cae-bbc1-d59e06c37605",
+          "length": 8,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "e810b852-6d74-4271-86c5-07228494a218"
+        },
+        "item": {
+          "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+          "name": "Logout User",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "users",
+                "logout"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "users",
+              "logout"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "16b821ce-ef23-43e2-b642-02d139f84e05",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "POST"
+        },
+        "response": {
+          "id": "04ae6453-25dd-42f1-a873-83ebb807acad",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "49"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"31-0e1BeSFpeHHOhzccpAvfIUGqeVo\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              50,
+              48,
+              48,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              83,
+              117,
+              99,
+              99,
+              101,
+              115,
+              115,
+              102,
+              117,
+              108,
+              108,
+              121,
+              32,
+              76,
+              111,
+              103,
+              103,
+              101,
+              100,
+              79,
+              117,
+              116,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 42,
+          "responseSize": 49
+        },
+        "id": "9ea76a7a-22a6-444a-976f-778f67865669"
+      },
+      {
+        "cursor": {
+          "ref": "2b6ddabb-f931-4969-8a1a-6d7887848a70",
+          "length": 8,
+          "cycles": 1,
+          "position": 3,
+          "iteration": 0,
+          "httpRequestId": "ae87d07f-8c36-4063-9e77-b597e7447f98"
+        },
+        "item": {
+          "id": "2a356c60-f256-48bb-ae81-544819b82131",
+          "name": "Get All Employees",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "employee",
+                "getEmployees"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "2"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "",
+                  "pm.test(\"Response time is less than 50ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                  "});"
+                ],
+                "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "employee",
+              "getEmployees"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [
+              {
+                "key": "count",
+                "value": "2"
+              }
+            ],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "2e52627a-c5e3-4b8d-8f19-3b93cef28cc0",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "a379a572-7b99-4c9e-a98c-40afa3fc4d9c",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "241"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"f1-Dalu2ZyUOfCIjFSX8Z/R0oeJWag\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              50,
+              48,
+              48,
+              44,
+              34,
+              100,
+              97,
+              116,
+              97,
+              34,
+              58,
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              74,
+              111,
+              104,
+              110,
+              32,
+              68,
+              111,
+              101,
+              34,
+              44,
+              34,
+              97,
+              103,
+              101,
+              34,
+              58,
+              51,
+              53,
+              44,
+              34,
+              112,
+              111,
+              115,
+              105,
+              116,
+              105,
+              111,
+              110,
+              34,
+              58,
+              34,
+              83,
+              111,
+              102,
+              116,
+              119,
+              97,
+              114,
+              101,
+              32,
+              69,
+              110,
+              103,
+              105,
+              110,
+              101,
+              101,
+              114,
+              34,
+              44,
+              34,
+              100,
+              101,
+              112,
+              97,
+              114,
+              116,
+              109,
+              101,
+              110,
+              116,
+              34,
+              58,
+              34,
+              69,
+              110,
+              103,
+              105,
+              110,
+              101,
+              101,
+              114,
+              105,
+              110,
+              103,
+              34,
+              44,
+              34,
+              115,
+              97,
+              108,
+              97,
+              114,
+              121,
+              34,
+              58,
+              56,
+              48,
+              48,
+              48,
+              48,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              50,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              74,
+              97,
+              110,
+              101,
+              32,
+              83,
+              109,
+              105,
+              116,
+              104,
+              34,
+              44,
+              34,
+              97,
+              103,
+              101,
+              34,
+              58,
+              50,
+              56,
+              44,
+              34,
+              112,
+              111,
+              115,
+              105,
+              116,
+              105,
+              111,
+              110,
+              34,
+              58,
+              34,
+              77,
+              97,
+              114,
+              107,
+              101,
+              116,
+              105,
+              110,
+              103,
+              32,
+              77,
+              97,
+              110,
+              97,
+              103,
+              101,
+              114,
+              34,
+              44,
+              34,
+              100,
+              101,
+              112,
+              97,
+              114,
+              116,
+              109,
+              101,
+              110,
+              116,
+              34,
+              58,
+              34,
+              77,
+              97,
+              114,
+              107,
+              101,
+              116,
+              105,
+              110,
+              103,
+              34,
+              44,
+              34,
+              115,
+              97,
+              108,
+              97,
+              114,
+              121,
+              34,
+              58,
+              55,
+              53,
+              48,
+              48,
+              48,
+              125,
+              93,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 42,
+          "responseSize": 241
+        },
+        "id": "2a356c60-f256-48bb-ae81-544819b82131",
+        "assertions": [
+          {
+            "assertion": "Status code is 200",
+            "skipped": false
+          },
+          {
+            "assertion": "Response time is less than 50ms",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "6ee19eba-402d-4edb-9c33-decb742bbc2d",
+          "length": 8,
+          "cycles": 1,
+          "position": 4,
+          "iteration": 0,
+          "httpRequestId": "6158708c-a95c-4a10-b651-d48a634afda9"
+        },
+        "item": {
+          "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+          "name": "Patch Employee",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "employee",
+                "updateEmployee"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "employee",
+              "updateEmployee"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "f121b00d-d75f-47cd-9e0e-73f91d0db577",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "PATCH"
+        },
+        "response": {
+          "id": "407e7a11-d86e-4eeb-a803-5a4de436ebc2",
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "51"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"33-0X2OABRyT6e50Oyz+v4FB3PBjtE\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              52,
+              48,
+              48,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              73,
+              110,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              100,
+              97,
+              116,
+              97,
+              32,
+              105,
+              110,
+              32,
+              112,
+              97,
+              121,
+              108,
+              111,
+              97,
+              100,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 43,
+          "responseSize": 51
+        },
+        "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45"
+      },
+      {
+        "cursor": {
+          "ref": "0f8452e3-a73c-4b8e-aa19-f2d2168e4298",
+          "length": 8,
+          "cycles": 1,
+          "position": 5,
+          "iteration": 0,
+          "httpRequestId": "a33e42d1-da9b-4cf1-bd48-33a65fec3057"
+        },
+        "item": {
+          "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+          "name": "Get a Employee",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "employee",
+                "getEmployee"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "// Assert the status code",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "employee",
+              "getEmployee"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "e75e13bc-838d-4ca2-acb7-81c2c1d7d93f",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "5bbf0e3b-d711-4ca1-945f-d046ab7228ac",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "53"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"35-4hUSQh3XVZ9z5/7P77oyMn2SPpI\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              52,
+              48,
+              49,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              80,
+              101,
+              114,
+              109,
+              105,
+              115,
+              115,
+              105,
+              111,
+              110,
+              32,
+              110,
+              111,
+              116,
+              32,
+              97,
+              117,
+              116,
+              104,
+              111,
+              114,
+              105,
+              122,
+              101,
+              100,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 42,
+          "responseSize": 53
+        },
+        "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+        "assertions": [
+          {
+            "assertion": "Status code is 200",
+            "skipped": false,
+            "error": {
+              "name": "AssertionError",
+              "index": 0,
+              "test": "Status code is 200",
+              "message": "expected response to have status code 200 but got 401",
+              "stack": "AssertionError: expected response to have status code 200 but got 401\n   at Object.eval sandbox-script.js:1:6)"
+            }
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "d85be76e-c27c-4678-8c87-e5241a79a351",
+          "length": 8,
+          "cycles": 1,
+          "position": 6,
+          "iteration": 0,
+          "httpRequestId": "4a4ed7b3-7c12-435d-9af8-a5b05d1245fd"
+        },
+        "item": {
+          "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+          "name": "Get Profile",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "profile"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+                "type": "text/javascript",
+                "exec": [
+                  "// Assert the status code ",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "profile"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "d931d093-0047-4ce4-b298-337bc2f39697",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "8f2ece40-5935-46cc-8b98-353c1d11b72c",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "48"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"30-pyetiFZsTJKZI09lKootCKu1x7E\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              50,
+              48,
+              48,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              83,
+              117,
+              99,
+              99,
+              101,
+              115,
+              115,
+              102,
+              117,
+              108,
+              108,
+              121,
+              32,
+              102,
+              101,
+              116,
+              99,
+              104,
+              101,
+              100,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 44,
+          "responseSize": 48
+        },
+        "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+        "assertions": [
+          {
+            "assertion": "Status code is 200",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "acfb885c-1cb9-4e65-9452-880a95a7b86f",
+          "length": 8,
+          "cycles": 1,
+          "position": 7,
+          "iteration": 0,
+          "httpRequestId": "7dbc9a2e-d6df-483f-96da-95973d91b588"
+        },
+        "item": {
+          "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+          "name": "Patch Profile",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "profile",
+                "update"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Assert the code \", function () {",
+                  "    pm.expect(2).to.eql(3)",
+                  "});"
+                ],
+                "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "api",
+              "profile",
+              "update"
+            ],
+            "host": [
+              "43",
+              "205",
+              "212",
+              "159"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.29.0",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "1fc29cd0-f67f-4888-bfd3-fe5960e45778",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "43.205.212.159",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "PATCH"
+        },
+        "response": {
+          "id": "552fce61-cc97-4065-9205-c17e1c7a4830",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "53"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"35-4hUSQh3XVZ9z5/7P77oyMn2SPpI\""
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 06 Apr 2024 12:12:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              52,
+              48,
+              49,
+              44,
+              34,
+              109,
+              101,
+              115,
+              115,
+              97,
+              103,
+              101,
+              34,
+              58,
+              34,
+              80,
+              101,
+              114,
+              109,
+              105,
+              115,
+              115,
+              105,
+              111,
+              110,
+              32,
+              110,
+              111,
+              116,
+              32,
+              97,
+              117,
+              116,
+              104,
+              111,
+              114,
+              105,
+              122,
+              101,
+              100,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 42,
+          "responseSize": 53
+        },
+        "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+        "assertions": [
+          {
+            "assertion": "Status code is 200",
+            "skipped": false,
+            "error": {
+              "name": "AssertionError",
+              "index": 0,
+              "test": "Status code is 200",
+              "message": "expected response to have status code 200 but got 401",
+              "stack": "AssertionError: expected response to have status code 200 but got 401\n   at Object.eval sandbox-script.js:1:8)"
+            }
+          },
+          {
+            "assertion": "Assert the code ",
+            "skipped": false,
+            "error": {
+              "name": "AssertionError",
+              "index": 1,
+              "test": "Assert the code ",
+              "message": "expected 2 to deeply equal 3",
+              "stack": "AssertionError: expected 2 to deeply equal 3\n   at Object.eval sandbox-script.js:2:8)"
+            }
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 593
+    },
+    "failures": [
+      {
+        "error": {
+          "name": "AssertionError",
+          "index": 0,
+          "test": "Status code is 201",
+          "message": "expected response to have status code 201 but got 200",
+          "stack": "AssertionError: expected response to have status code 201 but got 200\n   at Object.eval sandbox-script.js:1:1)",
+          "checksum": "36e5d31be2b7c0ed422c3b15e9aa1447",
+          "id": "5e1be9cc-2319-41fb-96e0-2390db02b785",
+          "timestamp": 1712405536827,
+          "stacktrace": [
+            {
+              "fileName": "sandbox-script.js",
+              "lineNumber": 1,
+              "functionName": "Object.eval",
+              "typeName": "Object",
+              "methodName": "eval",
+              "columnNumber": 1,
+              "native": false
+            }
+          ]
+        },
+        "at": "assertion:0 in test-script",
+        "source": {
+          "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+          "name": "Register User",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "users",
+                "register"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                "type": "text/javascript",
+                "exec": [
+                  "const responseData = pm.response.json()",
+                  "",
+                  "// console.log(responseData.message)",
+                  "",
+                  "// Assert the status code",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "// Assert the message ",
+                  "pm.test(\"Assert the successfull message\", function () {",
+                  "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                  "});",
+                  "",
+                  "pm.test(\"Content-Type is present\", function () {",
+                  "    pm.response.to.have.header(\"Content-Type\");",
+                  "});",
+                  "",
+                  "",
+                  ""
+                ],
+                "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "parent": {
+          "_": {
+            "postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7"
+          },
+          "item": [
+            {
+              "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+              "name": "Register User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "const responseData = pm.response.json()",
+                      "",
+                      "// console.log(responseData.message)",
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "// Assert the message ",
+                      "pm.test(\"Assert the successfull message\", function () {",
+                      "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "",
+                      ""
+                    ],
+                    "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+              "name": "Login User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+              "name": "Logout User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "2a356c60-f256-48bb-ae81-544819b82131",
+              "name": "Get All Employees",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployees"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "",
+                      "pm.test(\"Response time is less than 50ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+              "name": "Patch Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "updateEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+              "name": "Get a Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                    "type": "text/javascript",
+                    "exec": [
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+              "name": "Get Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Assert the status code ",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+              "name": "Patch Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Assert the code \", function () {",
+                      "    pm.expect(2).to.eql(3)",
+                      "});"
+                    ],
+                    "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ],
+          "event": [],
+          "variable": [
+            {
+              "type": "any",
+              "value": "http://localhost:3000",
+              "key": "baseUrl"
+            },
+            {
+              "type": "any",
+              "value": "http://43.205.212.159",
+              "key": "baseURL"
+            }
+          ],
+          "info": {
+            "_postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7",
+            "name": "QA Insights - Hackathon",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+          }
+        },
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 8,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "998a29e2-6e6f-4b18-ad73-4814c066d8c9",
+          "httpRequestId": "b4e1ea8d-5e87-4a81-9fd4-97056cb19832",
+          "scriptId": "ff569579-4bff-49a5-8a09-13978dccf16e",
+          "execution": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+        }
+      },
+      {
+        "error": {
+          "name": "AssertionError",
+          "index": 0,
+          "test": "Status code is 200",
+          "message": "expected response to have status code 200 but got 401",
+          "stack": "AssertionError: expected response to have status code 200 but got 401\n   at Object.eval sandbox-script.js:1:6)",
+          "checksum": "b82e3ee20faf4bc3d22faac580482295",
+          "id": "cbd53d4c-d32f-4478-af9d-0150452ad6f8",
+          "timestamp": 1712405537100,
+          "stacktrace": [
+            {
+              "fileName": "sandbox-script.js",
+              "lineNumber": 1,
+              "functionName": "Object.eval",
+              "typeName": "Object",
+              "methodName": "eval",
+              "columnNumber": 6,
+              "native": false
+            }
+          ]
+        },
+        "at": "assertion:0 in test-script",
+        "source": {
+          "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+          "name": "Get a Employee",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "employee",
+                "getEmployee"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                "type": "text/javascript",
+                "exec": [
+                  "",
+                  "// Assert the status code",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "parent": {
+          "_": {
+            "postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7"
+          },
+          "item": [
+            {
+              "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+              "name": "Register User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "const responseData = pm.response.json()",
+                      "",
+                      "// console.log(responseData.message)",
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "// Assert the message ",
+                      "pm.test(\"Assert the successfull message\", function () {",
+                      "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "",
+                      ""
+                    ],
+                    "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+              "name": "Login User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+              "name": "Logout User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "2a356c60-f256-48bb-ae81-544819b82131",
+              "name": "Get All Employees",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployees"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "",
+                      "pm.test(\"Response time is less than 50ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+              "name": "Patch Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "updateEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+              "name": "Get a Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                    "type": "text/javascript",
+                    "exec": [
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+              "name": "Get Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Assert the status code ",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+              "name": "Patch Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Assert the code \", function () {",
+                      "    pm.expect(2).to.eql(3)",
+                      "});"
+                    ],
+                    "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ],
+          "event": [],
+          "variable": [
+            {
+              "type": "any",
+              "value": "http://localhost:3000",
+              "key": "baseUrl"
+            },
+            {
+              "type": "any",
+              "value": "http://43.205.212.159",
+              "key": "baseURL"
+            }
+          ],
+          "info": {
+            "_postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7",
+            "name": "QA Insights - Hackathon",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+          }
+        },
+        "cursor": {
+          "ref": "0f8452e3-a73c-4b8e-aa19-f2d2168e4298",
+          "length": 8,
+          "cycles": 1,
+          "position": 5,
+          "iteration": 0,
+          "httpRequestId": "a33e42d1-da9b-4cf1-bd48-33a65fec3057",
+          "scriptId": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+          "execution": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+        }
+      },
+      {
+        "error": {
+          "name": "AssertionError",
+          "index": 0,
+          "test": "Status code is 200",
+          "message": "expected response to have status code 200 but got 401",
+          "stack": "AssertionError: expected response to have status code 200 but got 401\n   at Object.eval sandbox-script.js:1:8)",
+          "checksum": "d8b2e3127a8fd49bd065e1bd2e034259",
+          "id": "9e74d77e-0f7b-4960-aac7-4450ffe335d3",
+          "timestamp": 1712405537211,
+          "stacktrace": [
+            {
+              "fileName": "sandbox-script.js",
+              "lineNumber": 1,
+              "functionName": "Object.eval",
+              "typeName": "Object",
+              "methodName": "eval",
+              "columnNumber": 8,
+              "native": false
+            }
+          ]
+        },
+        "at": "assertion:0 in test-script",
+        "source": {
+          "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+          "name": "Patch Profile",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "profile",
+                "update"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Assert the code \", function () {",
+                  "    pm.expect(2).to.eql(3)",
+                  "});"
+                ],
+                "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "parent": {
+          "_": {
+            "postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7"
+          },
+          "item": [
+            {
+              "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+              "name": "Register User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "const responseData = pm.response.json()",
+                      "",
+                      "// console.log(responseData.message)",
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "// Assert the message ",
+                      "pm.test(\"Assert the successfull message\", function () {",
+                      "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "",
+                      ""
+                    ],
+                    "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+              "name": "Login User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+              "name": "Logout User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "2a356c60-f256-48bb-ae81-544819b82131",
+              "name": "Get All Employees",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployees"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "",
+                      "pm.test(\"Response time is less than 50ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+              "name": "Patch Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "updateEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+              "name": "Get a Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                    "type": "text/javascript",
+                    "exec": [
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+              "name": "Get Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Assert the status code ",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+              "name": "Patch Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Assert the code \", function () {",
+                      "    pm.expect(2).to.eql(3)",
+                      "});"
+                    ],
+                    "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ],
+          "event": [],
+          "variable": [
+            {
+              "type": "any",
+              "value": "http://localhost:3000",
+              "key": "baseUrl"
+            },
+            {
+              "type": "any",
+              "value": "http://43.205.212.159",
+              "key": "baseURL"
+            }
+          ],
+          "info": {
+            "_postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7",
+            "name": "QA Insights - Hackathon",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+          }
+        },
+        "cursor": {
+          "ref": "acfb885c-1cb9-4e65-9452-880a95a7b86f",
+          "length": 8,
+          "cycles": 1,
+          "position": 7,
+          "iteration": 0,
+          "httpRequestId": "7dbc9a2e-d6df-483f-96da-95973d91b588",
+          "scriptId": "805b36c4-08a2-4405-b074-21426ba99dff",
+          "execution": "5d7e955c-7897-4afe-ab38-693711a5db60"
+        }
+      },
+      {
+        "error": {
+          "name": "AssertionError",
+          "index": 1,
+          "test": "Assert the code ",
+          "message": "expected 2 to deeply equal 3",
+          "stack": "AssertionError: expected 2 to deeply equal 3\n   at Object.eval sandbox-script.js:2:8)",
+          "checksum": "3a6c81d30e5b74304d324a1159dcdf9e",
+          "id": "d4b77eb4-cd51-4ac3-a80a-f7a2df1a17b1",
+          "timestamp": 1712405537212,
+          "stacktrace": [
+            {
+              "fileName": "sandbox-script.js",
+              "lineNumber": 2,
+              "functionName": "Object.eval",
+              "typeName": "Object",
+              "methodName": "eval",
+              "columnNumber": 8,
+              "native": false
+            }
+          ]
+        },
+        "at": "assertion:1 in test-script",
+        "source": {
+          "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+          "name": "Patch Profile",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "profile",
+                "update"
+              ],
+              "host": [
+                "{{baseURL}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Assert the code \", function () {",
+                  "    pm.expect(2).to.eql(3)",
+                  "});"
+                ],
+                "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        "parent": {
+          "_": {
+            "postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7"
+          },
+          "item": [
+            {
+              "id": "ba1a96df-e5f3-4eb4-907d-4869bd5e555b",
+              "name": "Register User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ff569579-4bff-49a5-8a09-13978dccf16e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "const responseData = pm.response.json()",
+                      "",
+                      "// console.log(responseData.message)",
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "// Assert the message ",
+                      "pm.test(\"Assert the successfull message\", function () {",
+                      "    pm.expect(responseData.message).to.equal('Successfully Registered')",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "",
+                      ""
+                    ],
+                    "_lastExecutionId": "52157bf6-b4b5-4ad4-a54b-04f625bf84c7"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "90d60847-198f-4939-a4a3-e6432bd108fd",
+              "name": "Login User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "669f373c-2729-4fdd-b8b1-fe94cb03684c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "2f1d3729-1e89-41d2-863c-fb57beaa9548"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "9ea76a7a-22a6-444a-976f-778f67865669",
+              "name": "Logout User",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "2a356c60-f256-48bb-ae81-544819b82131",
+              "name": "Get All Employees",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployees"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9560e3c-2200-4bc9-a393-4236e5a7cf05",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "",
+                      "pm.test(\"Response time is less than 50ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(50);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "12729e56-6884-4892-b514-dd938f072b02"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "ef955fa0-a018-4821-b84e-2a4b7eafdf45",
+              "name": "Patch Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "updateEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "f6c6b36b-cee8-4da0-8c1b-9ac9b659e9a3",
+              "name": "Get a Employee",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "employee",
+                    "getEmployee"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b61f1c7c-ea53-4e4f-9142-7d73eaf07727",
+                    "type": "text/javascript",
+                    "exec": [
+                      "",
+                      "// Assert the status code",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "7faf50d7-4c65-4fa8-b977-5beee655fdd3"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "dd3fa0c3-bd6e-4cc7-ad9e-a5627f7be897",
+              "name": "Get Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f7937960-3124-4101-84fc-f73a8a280c0e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "// Assert the status code ",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "_lastExecutionId": "b73ed2e9-c5f4-40d7-8ab5-f68d78cebd50"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "6245b50a-9a5d-48b1-8b2e-24e2ccd3ce01",
+              "name": "Patch Profile",
+              "request": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH"
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "805b36c4-08a2-4405-b074-21426ba99dff",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Assert the code \", function () {",
+                      "    pm.expect(2).to.eql(3)",
+                      "});"
+                    ],
+                    "_lastExecutionId": "5d7e955c-7897-4afe-ab38-693711a5db60"
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ],
+          "event": [],
+          "variable": [
+            {
+              "type": "any",
+              "value": "http://localhost:3000",
+              "key": "baseUrl"
+            },
+            {
+              "type": "any",
+              "value": "http://43.205.212.159",
+              "key": "baseURL"
+            }
+          ],
+          "info": {
+            "_postman_id": "b010c997-bbc2-40d6-925a-81adcc3fc2b7",
+            "name": "QA Insights - Hackathon",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+          }
+        },
+        "cursor": {
+          "ref": "acfb885c-1cb9-4e65-9452-880a95a7b86f",
+          "length": 8,
+          "cycles": 1,
+          "position": 7,
+          "iteration": 0,
+          "httpRequestId": "7dbc9a2e-d6df-483f-96da-95973d91b588",
+          "scriptId": "805b36c4-08a2-4405-b074-21426ba99dff",
+          "execution": "5d7e955c-7897-4afe-ab38-693711a5db60"
+        }
+      }
+    ],
+    "error": null
+  }
+}

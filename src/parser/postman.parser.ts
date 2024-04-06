@@ -10,7 +10,7 @@ export function preparePostmanResult(result: any) {
     status: `${result.status}`,
     startdatetime: `${result.startedAt}`,
     duration: `${result.totalTime}`,
-    tescount: `${result.results.length}`,
+    tescount: `${result.results?.length}`,
     passescount: `${result.totalPass}`,
     failurecount: `${result.totalFail}`,
     passpercent: `${JSON.stringify((result.totalPass / (result.totalPass + result.totalFail)) * 100)}`,

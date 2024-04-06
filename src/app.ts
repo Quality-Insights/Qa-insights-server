@@ -1,4 +1,4 @@
-import { preparePostmanResult } from "./parser/postman.parser";
+import { preparePostmanResultV2 } from "./parser/postman.parser.v2";
 import { dumpToDatabase } from "./service/db/dumpToDb";
 import { S3Event } from "./types/s3";
 import logger, { l } from "./utils/logger";
@@ -27,7 +27,7 @@ export async function handler(event: S3Event, context: object) {
     if (bucket === "qa-cypress-logs") {
       await dumpToDatabase(data);
     } else if (bucket === "qa-postman-logs") {
-      const postmanResult = preparePostmanResult(data);
+      const postmanResult = preparePostmanResultV2(data);
 
       await dumpToDatabase(postmanResult);
     }
