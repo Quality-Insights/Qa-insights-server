@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon",
+    "seed": "ts-node src/scripts/seeder.ts",
     "build": "./lambda-compile.sh",
     "lint": "npx eslint --fix"
   },
