@@ -33,6 +33,7 @@ export class ConsoleLogTransport extends Transport {
       typeof info.message === "string" || info.message instanceof String
         ? info.message
         : inspect(info.message);
+
     const label =
       info.consoleLoggerOptions?.label || (info.level as string).toUpperCase();
 
@@ -52,24 +53,7 @@ export class ConsoleLogTransport extends Transport {
     callback();
   }
 }
-const logTransports = [
-  new transports.File({
-    level: "error",
-    filename: "./logs/error.log",
-    format: format.json({
-      replacer: (key, value) => {
-        if (key === "error") {
-          return {
-            message: (value as Error).message,
-            stack: (value as Error).stack,
-          };
-        }
-        return value;
-      },
-    }),
-  }),
-  new ConsoleLogTransport(),
-];
+const logTransports = [new ConsoleLogTransport()];
 
 const logger = createLogger({
   format: format.combine(format.timestamp()),

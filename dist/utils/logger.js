@@ -44,24 +44,7 @@ class ConsoleLogTransport extends winston_transport_1.default {
     }
 }
 exports.ConsoleLogTransport = ConsoleLogTransport;
-const logTransports = [
-    new winston_1.transports.File({
-        level: "error",
-        filename: "./logs/error.log",
-        format: winston_1.format.json({
-            replacer: (key, value) => {
-                if (key === "error") {
-                    return {
-                        message: value.message,
-                        stack: value.stack,
-                    };
-                }
-                return value;
-            },
-        }),
-    }),
-    new ConsoleLogTransport(),
-];
+const logTransports = [new ConsoleLogTransport()];
 const logger = (0, winston_1.createLogger)({
     format: winston_1.format.combine(winston_1.format.timestamp()),
     transports: logTransports,
