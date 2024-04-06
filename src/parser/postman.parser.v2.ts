@@ -48,7 +48,7 @@ export function preparePostmanResultV2(result: any) {
     delay: null,
     persist: null,
     status: null,
-    startdatetime: `${new Date(result.run?.timings?.started)}`,
+    startdatetime: `${new Date(result.run?.timings?.started).toISOString()}`,
     duration: `${result.run?.timings?.completed - result.run?.timings?.started}`,
     tescount: `${result.run?.stats?.items?.total}`,
     passescount: `${result.run?.stats?.items?.total - testFailureCount}`,
