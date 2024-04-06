@@ -1,0 +1,4 @@
+{"level":"error","message":"error: spawn cd /home/pukargiri/personals/QA-insights-server/~/test-data/nidkil/jest-test;npm test ENOENT","service":"api","timestamp":"2024-04-05T15:27:14.438Z"}
+{"level":"error","message":"error: spawn cd /home/pukargiri/personals/QA-insights-server/~/test-data/nidkil/jest-test;npm test ENOENT","service":"api","timestamp":"2024-04-05T15:29:37.621Z"}
+{"level":"error","message":"error: spawn cd /home/pukargiri/test-data/nidkil/jest-test;npm test ENOENT","service":"api","timestamp":"2024-04-05T15:32:02.438Z"}
+{"level":"error","message":"error: spawn cd /home/pukargiri/test-data/nidkil/jest-test;npm run test ENOENT","service":"api","timestamp":"2024-04-05T15:33:05.963Z"}

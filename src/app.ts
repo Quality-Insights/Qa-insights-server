@@ -1,18 +1,20 @@
-import express, { urlencoded } from "express";
+import express from "express";
+import serverless from "serverless-http";
 import morgan from "morgan";
-import router from "./route";
-import logger from "./utils/logger";
 
-const app = express();
+export const app = express();
 
 app.use(morgan("common"));
 
 app.use(express.json());
 
-app.use(router);
-
-app.listen(8888, () => {
-  logger.info("Server is running on port 8888");
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-export default app;
+const serverlessHandler = serverless(app);
+
+export async function handler(event: Object, context: Object) {
+  const result = await serverlessHandler(event, context);
+  return result;
+}
