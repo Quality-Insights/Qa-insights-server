@@ -18,7 +18,7 @@ export function preparePostmanResultV2(result: any) {
           full_title: `${testCase.assertion}`,
           is_pass: `${testCase.error ? false : true}`,
           testcase_id: `${randomUUID()}`,
-          test_id: `${test?.id}`
+          test_id: `${test?.item?.id}`
         }
       );
     };
