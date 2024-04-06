@@ -2,21 +2,21 @@ import { randomUUID } from 'crypto';
 
 export function preparePostmanResult(result: any) {
   const build = {
-    buildid: result.id,
-    startdatetime: result.startedAt,
-    enddatetime: null,
-    duration: result.totalTime,
-    suitescount: null,
-    testcount: result.results.length,
-    passescount: result.totalPass,
-    pendingcount: null,
-    failurecount: result.totalFail,
-    testregisteredcount: null,
-    passpercent: JSON.stringify((result.totalPass / (result.totalPass + result.totalFail)) * 100),
-    pendingpercent: null,
-    skippedcount: null,
+    build_id: `${result.id}`,
+    folder_id: `${result.folder_id}`,
+    environment_id: `${result.environment_id}`,
+    delay: `${result.delay}`,
+    persist: `${result.persist}`,
+    status: `${result.status}`,
+    startdatetime: `${result.startedAt}`,
+    duration: `${result.totalTime}`,
+    tescount: `${result.results.length}`,
+    passescount: `${result.totalPass}`,
+    failurecount: `${result.totalFail}`,
+    passpercent: `${JSON.stringify((result.totalPass / (result.totalPass + result.totalFail)) * 100)}`,
     buildtype: "postman"
-  }
+  };
+
 
   let tests = [];
   let testCases = [];
@@ -29,19 +29,11 @@ export function preparePostmanResult(result: any) {
     for (let testCaseKey of testCasesKeys) {
       currentTestCases.push(
         {
-          title: testCaseKey,
-          full_title: testCaseKey,
-          timedout: null,
-          duration: null,
-          state: test.tests[testCaseKey],
-          speed: null,
-          is_pass: test.tests[testCaseKey],
-          fail: test.tests[testCaseKey],
-          pending: null,
-          testcase_uuid: randomUUID(),
-          test_uuid: test.id,
-          is_skipped: null,
-          err_message: null
+          title: `${testCaseKey}`,
+          full_title: `${testCaseKey}`,
+          is_pass: `${test.tests[testCaseKey]}`, // Assuming test.tests[testCaseKey] returns a boolean
+          testcase_id: `${randomUUID()}`,
+          test_id: `${test.id}`
         }
       );
     };
@@ -50,27 +42,18 @@ export function preparePostmanResult(result: any) {
 
     tests.push(
       {
-        uuid: test.id,
-        title: test.name,
-        fullfile: null,
-        file: null,
-        beforehook: null,
-        afterhook: null,
-        suites: null,
-        passes: currentTestCases.filter(testCase => testCase.is_pass === true).length,
-        failure: currentTestCases.filter(testCase => testCase.is_pass !== true).length,
-        pending: null,
+        test_id: test.id,
+        name: test.name,
         duration: test.time,
-        root: null,
-        rootempty: null,
-        buildid: build.buildid,
-        url: test.url
+        build_id: build.build_id,
+        url: test.url,
+        responsecode_status: test.responseCode.code,
       }
     );
   }
 
   return {
-    build: build,
+    buildStats: build,
     tests: tests,
     testCases: testCases
   };

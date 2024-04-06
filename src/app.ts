@@ -1,3 +1,5 @@
+import { preparePostmanResult } from "./parser/postman.parser";
+import { dumpToDatabase } from "./service/db/dumpToDb";
 import { S3Event } from "./types/s3";
 import logger, { l } from "./utils/logger";
 import aws from "aws-sdk";
@@ -15,14 +17,19 @@ export async function handler(event: S3Event, context: object) {
     const bucket = record.s3.bucket.name;
     const file = record.s3.object.key;
     logger.info(`Processing file ${file} from bucket ${bucket}`);
-    const data = await s3.getObject({ Bucket: bucket, Key: file }).promise();
-    logger.info(`File content: ${data}`);
+    const body = await s3.getObject({ Bucket: bucket, Key: file }).promise();
+
+    const text = body?.Body?.toString();
+    if (!text) return;
+
+    const data = JSON.parse(text);
+
     if (bucket === "qa-cypress-logs") {
-      //parse cypress log and insert to database
-      logger.info(`Parsing cypress log`);
+      await dumpToDatabase(data);
     } else if (bucket === "qa-postman-logs") {
-      //parse postman log and insert to database
-      logger.info(`Parsing postman log`);
+      const postmanResult = preparePostmanResult(data);
+
+      await dumpToDatabase(postmanResult);
     }
   });
   await Promise.all(responsePromise);
