@@ -29,7 +29,7 @@ export function preparePostmanResultV2(result: any) {
 
     tests.push(
       {
-        test_id: test?.item?.id,
+        test_id: randomUUID(),
         name: test?.item?.name,
         duration: `${test?.response?.responseTime}`,
         build_id: `${result.collection.info?._postman_id}`,
@@ -40,7 +40,7 @@ export function preparePostmanResultV2(result: any) {
   }
 
   const build = {
-    build_id: `${result.collection.info?._postman_id}`,
+    build_id: randomUUID(),
     folder_id: null,
     environment_id: `${result.environment?.id}`,
     delay: null,
